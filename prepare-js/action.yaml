@@ -1,0 +1,18 @@
+name: prepare-js
+description: test
+
+inputs:
+  workflow-id:
+    description: >-
+      Workflow ID (e.g. ci.yaml), used to retrieve the latest run ID of the associated PR.
+      Defaults to the current workflow ID.
+
+outputs:
+  merged-pr-number:
+    description: Associated PR number with current HEAD (if any)
+  merged-pr-latest-run:
+    description: Latest run ID of the associated PR (if any)
+
+runs:
+  using: node20
+  main: dist/index.js

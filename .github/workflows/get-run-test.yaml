@@ -20,5 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' }}
     steps:
+      - uses: actions/checkout@v4
       - id: get-run-id
         uses: ./prepare-js

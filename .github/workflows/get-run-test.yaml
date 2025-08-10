@@ -23,4 +23,3 @@ jobs:
       - uses: actions/checkout@v4
       - id: get-run-id
         uses: ./prepare-js
-

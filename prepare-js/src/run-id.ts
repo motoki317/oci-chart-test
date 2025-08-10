@@ -1,14 +1,7 @@
 import * as github from '@actions/github'
+import * as core from '@actions/core'
 
-const mustGetEnv = (name: string) => {
-  const value = process.env[name];
-  if (!value) {
-    throw new Error(`Environment variable ${name} is not set`);
-  }
-  return value;
-}
-
-const octokit = github.getOctokit(mustGetEnv('GITHUB_TOKEN'))
+const octokit = github.getOctokit(core.getInput('github-token', { required: true }))
 const context = github.context
 
 export const getSelfWorkflowId = async () => {

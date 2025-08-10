@@ -31241,14 +31241,7 @@ function requireGithub () {
 
 var githubExports = requireGithub();
 
-const mustGetEnv = (name) => {
-    const value = process.env[name];
-    if (!value) {
-        throw new Error(`Environment variable ${name} is not set`);
-    }
-    return value;
-};
-const octokit = githubExports.getOctokit(mustGetEnv('GITHUB_TOKEN'));
+const octokit = githubExports.getOctokit(coreExports.getInput('github-token', { required: true }));
 const context = githubExports.context;
 const getSelfWorkflowId = async () => {
     const { data: run } = await octokit.rest.actions.getWorkflowRun({

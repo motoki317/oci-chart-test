@@ -6,6 +6,9 @@ inputs:
     description: >-
       Workflow ID (e.g. ci.yaml), used to retrieve the latest run ID of the associated PR.
       Defaults to the current workflow ID.
+  github-token:
+    description: GitHub token for API access (defaults to github.token)
+    default: ${{ github.token }}
 
 outputs:
   merged-pr-number:
